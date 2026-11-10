@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "UNLMTD Soccer",
+    "slug": "unlmtd-soccer",
+    "scheme": "unlmtd",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#00201b",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.unlmtdsoccer.app",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.unlmtdsoccer.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#00201b",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/logo-off-white.png",
+          "imageWidth": 220,
+          "resizeMode": "contain",
+          "backgroundColor": "#00201b"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "UNLMTD Soccer uses your location to find the club nearest to you."
+        }
+      ],
+      "expo-web-browser",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#00201b",
+          "defaultChannel": "default"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "description": "Book fields, join pickup and register for camps at UNLMTD Soccer clubs."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "cli": {
+    "version": ">= 27.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "base": {
+      "node": "22.23.4"
+    },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "internal",
+      "android": { "buildType": "apk" },
+      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+    },
+    "testing": {
+      "extends": "base",
+      "autoIncrement": true,
+      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+    },
+    "production": {
+      "extends": "base",
+      "autoIncrement": true,
+      "env": { "EXPO_PUBLIC_BOND_MODE": "live" }
+    }
+  },
+  "submit": {
+    "testing": {
+      "android": { "track": "internal", "releaseStatus": "draft" }
+    },
+    "production": {
+      "android": { "track": "production", "releaseStatus": "draft" }
+    }
+  }
+}
