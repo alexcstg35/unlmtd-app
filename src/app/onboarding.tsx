@@ -39,7 +39,7 @@ export default function Onboarding() {
         <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingBottom: 28 }} stickyHeaderIndices={[]}>
           <View style={styles.head}>
             <Logo height={36} />
-            <Text accessibilityRole="header" style={[display(64, 0.86), styles.title]}>
+            <Text accessibilityRole="header" style={[display(64, 0.86, { top: 26, bottom: 12 }), styles.titleColor]}>
               Where do you play?
             </Text>
             <Text style={styles.sub}>Pick your home club. The app opens there every time, and you can switch whenever you play somewhere else.</Text>
@@ -76,7 +76,7 @@ export default function Onboarding() {
         <ScrollView keyboardShouldPersistTaps="handled">
           <View style={styles.head}>
             <Logo height={36} />
-            <Text accessibilityRole="header" style={[display(60, 0.86), styles.title, { marginTop: 22 }]}>
+            <Text accessibilityRole="header" style={[display(60, 0.86, { top: 22, bottom: 12 }), styles.titleColor]}>
               {mode === 'signup' ? 'Create your account' : 'Sign in to book'}
             </Text>
             <Text style={styles.sub}>
@@ -146,7 +146,7 @@ function Framed({ name }: { name: string }) {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: brand.pitch },
   head: { paddingTop: 22, paddingHorizontal: 20 },
-  title: { marginTop: 26, marginBottom: 12, color: brand.onPitch },
+  titleColor: { color: brand.onPitch },
   sub: { maxWidth: 340, color: brand.onPitch2, fontFamily: font.regular, fontSize: 15, lineHeight: 22 },
   done: { flex: 1, justifyContent: 'center', alignItems: 'flex-start', paddingVertical: 28, paddingHorizontal: 24 },
   kicker: { color: brand.onPitch2, fontFamily: font.semibold, fontSize: 16 },

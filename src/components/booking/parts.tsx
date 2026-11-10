@@ -3,7 +3,7 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { Icon } from '@/components/Icon';
-import { brand, display, font, useTheme } from '@/theme';
+import { anton, brand, display, font, useTheme } from '@/theme';
 
 export function Step({ children, style }: { children: string; style?: StyleProp<ViewStyle> }) {
   const { c } = useTheme();
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   ages: { alignSelf: 'flex-start', marginTop: 6, paddingVertical: 2, paddingHorizontal: 8, borderRadius: 999, backgroundColor: brand.onPitch },
   agesT: { color: brand.pitch, fontFamily: font.extrabold, fontSize: 12 },
   dateBlock: { width: 58, height: 58, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
-  dateB: { fontFamily: font.display, fontSize: 24, lineHeight: 26 },
+  dateB: anton(24, 26),
   dateS: { fontFamily: font.bold, fontSize: 11.5 },
   peak: { marginLeft: 6, paddingVertical: 1, paddingHorizontal: 6, borderRadius: 6, backgroundColor: 'rgba(242,82,59,0.14)' },
   peakT: { fontFamily: font.extrabold, fontSize: 10.5, letterSpacing: 0.2 },

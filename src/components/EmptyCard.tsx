@@ -11,7 +11,7 @@ export function EmptyCard({ heading, body, actions }: { heading: string; body: s
   return (
     <View style={[styles.empty, { backgroundColor: c.surface, borderColor: c.rule }]}>
       <Icon name="ticket" size={58} color={c.text} />
-      <Text accessibilityRole="header" style={[title(29), { color: c.text, marginTop: 16, marginBottom: 8 }]}>
+      <Text accessibilityRole="header" style={[title(29, { top: 16, bottom: 8 }), { color: c.text }]}>
         {heading}
       </Text>
       <Text style={[styles.p, { color: c.text2 }]}>{body}</Text>

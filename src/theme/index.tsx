@@ -19,4 +19,4 @@ export function ThemeProvider({ pref, children }: { pref: ThemePref; children: R
 export const useTheme = () => useContext(ThemeContext);
 
 export { brand } from './colors';
-export { display, font, title } from './fonts';
+export { anton, display, font, title } from './fonts';

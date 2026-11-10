@@ -104,7 +104,7 @@ export function PageHead({ title: t, children }: { title: string; children?: Rea
 export function SectionTitle({ children }: { children: string }) {
   const { c } = useTheme();
   return (
-    <Text accessibilityRole="header" style={[title(27), { color: c.text, marginBottom: 14 }]}>
+    <Text accessibilityRole="header" style={[title(27, { bottom: 14 }), { color: c.text }]}>
       {children}
     </Text>
   );

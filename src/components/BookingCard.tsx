@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import type { Booking, BookingStatus } from '@/bond';
 import { monthShort, parseIso } from '@/lib/format';
-import { brand, font, title, useTheme } from '@/theme';
+import { anton, brand, font, useTheme } from '@/theme';
 
 import { StatusChip } from './checkout/parts';
 import { Icon } from './Icon';
@@ -28,7 +28,7 @@ export function BookingCard({ booking: b, past }: { booking: Booking; past?: boo
       label={`${b.title}. ${b.short}. ${b.clubName}. ${st.label}`}
       style={[styles.card, { backgroundColor: c.surface, borderColor: c.rule, opacity: past ? 0.6 : 1 }]}>
       <View style={[styles.date, { backgroundColor: KIND_COLOR[b.kind] }]}>
-        <Text style={[title(26), { color: brand.ink, lineHeight: 28 }]}>{d.getDate()}</Text>
+        <Text style={[anton(26, 28), { color: brand.ink }]}>{d.getDate()}</Text>
         <Text style={styles.month}>{monthShort(d)}</Text>
       </View>
       <View style={{ flex: 1, minWidth: 0 }}>

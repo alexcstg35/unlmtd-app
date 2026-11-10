@@ -94,7 +94,7 @@ export default function Account() {
         ) : (
           <>
             <Text style={styles.k}>UNLMTD bookings run on Bond Sports</Text>
-            <Text accessibilityRole="header" style={[display(58, 0.86), { color: brand.onPitch, marginTop: 12, marginBottom: 6 }]}>
+            <Text accessibilityRole="header" style={[display(58, 0.86, { top: 12, bottom: 6 }), { color: brand.onPitch }]}>
               Sign in
             </Text>
             <Text style={styles.cText}>Use your Bond account to book, see your games and check in at the front desk.</Text>

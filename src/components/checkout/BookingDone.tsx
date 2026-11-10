@@ -36,7 +36,7 @@ export function BookingDone({ booking: b, email, club }: { booking: Booking; ema
           </Svg>
         </Animated.View>
       </View>
-      <Text accessibilityRole="header" style={[display(58, 0.86), { color: c.text, marginTop: 18, marginBottom: 8, textAlign: 'center' }]}>
+      <Text accessibilityRole="header" style={[display(58, 0.86, { top: 18, bottom: 8 }), { color: c.text, textAlign: 'center' }]}>
         {head}
       </Text>
       <StatusChip center kind={pending ? 'pend' : 'ok'} label={pending ? 'Awaiting club approval' : 'Confirmed'} />

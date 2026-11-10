@@ -5,7 +5,7 @@ import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from
 import { bond, type Club, type RentalService, type Slot } from '@/bond';
 import { fmtDay, fmtDayLong, fmtTime, iso, money0, monthShort, tzLabel, weekdayShort } from '@/lib/format';
 import { APPROVAL_FROM, DURATIONS, useBooking } from '@/state/booking';
-import { brand, font, title, useTheme } from '@/theme';
+import { anton, brand, font, title, useTheme } from '@/theme';
 
 import { Bracket, EmptyDay, PeakTag, Seg, Step } from './parts';
 
@@ -87,7 +87,7 @@ export function RentalSteps({ club }: { club: Club }) {
                 accessibilityLabel={fmtDayLong(d)}
                 style={[styles.day, on ? { backgroundColor: brand.yellow, borderColor: 'transparent' } : { backgroundColor: c.surface, borderColor: c.rule }]}>
                 <Text style={[styles.daySmall, { color: on ? brand.ink : c.text2 }]}>{i === 0 ? 'Today' : weekdayShort(d)}</Text>
-                <Text style={[title(25), { color: on ? brand.ink : c.text, lineHeight: 27 }]}>{d.getDate()}</Text>
+                <Text style={[anton(25, 27), { color: on ? brand.ink : c.text }]}>{d.getDate()}</Text>
                 <Text style={[styles.daySmall, { color: on ? brand.ink : c.text2 }]}>{monthShort(d)}</Text>
               </Pressable>
             </Bracket>

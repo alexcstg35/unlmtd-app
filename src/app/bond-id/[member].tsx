@@ -55,7 +55,7 @@ export default function BondId() {
     <Sheet title="Bond ID">
       <View style={styles.big}>
         <BondQr member={m} size={200} padding={14} />
-        <Text style={[display(36), { color: brand.onPitch, marginTop: 16, textAlign: 'center' }]}>
+        <Text style={[display(36, 0.9, { top: 16 }), { color: brand.onPitch, textAlign: 'center' }]}>
           {m.firstName}
           {m.isAccountHolder && user.lastName ? ` ${user.lastName}` : ''}
         </Text>

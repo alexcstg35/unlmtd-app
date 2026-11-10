@@ -39,7 +39,7 @@ export default function Home() {
             </>
           )}
         </View>
-        <Text accessibilityRole="header" adjustsFontSizeToFit numberOfLines={2} style={[display(84, 0.86), styles.name]}>
+        <Text accessibilityRole="header" adjustsFontSizeToFit numberOfLines={2} style={[display(84, 0.86, { top: 16, bottom: 8 }), styles.name]}>
           {club.name}
         </Text>
         <Text style={styles.city}>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   pillT: { color: brand.ink, fontFamily: font.bold, fontSize: 12.5 },
   dot: { position: 'absolute', width: 8, height: 8, borderRadius: 4, backgroundColor: brand.green },
   dotRing: { position: 'absolute', width: 8, height: 8, borderRadius: 4, backgroundColor: brand.green },
-  name: { marginTop: 16, marginBottom: 8, color: brand.onPitch },
+  name: { color: brand.onPitch },
   city: { color: brand.onPitch2, fontFamily: font.regular, fontSize: 15 },
   actions: { flexDirection: 'row', gap: 10, marginTop: 22 },
   marquee: { height: 52, marginTop: 24, marginHorizontal: -20, borderTopWidth: 1, borderTopColor: brand.onPitch3, overflow: 'hidden' },

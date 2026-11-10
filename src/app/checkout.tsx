@@ -20,7 +20,7 @@ import { useApp } from '@/state/app';
 import { useData } from '@/state/data';
 import { APPROVAL_FROM, useBooking, type Selection } from '@/state/booking';
 import { useToast } from '@/state/toast';
-import { brand, display, font, useTheme } from '@/theme';
+import { anton, brand, display, font, useTheme } from '@/theme';
 import { activityColor } from '@/theme/colors';
 import { closeModal } from '@/components/Sheet';
 
@@ -217,7 +217,7 @@ export default function Checkout() {
       <Text style={styles.sumK}>
         {x.actName} at {club.name}
       </Text>
-      <Text style={[display(38), { color: brand.onPitch, marginTop: 10, marginBottom: 6 }]}>{x.title}</Text>
+      <Text style={[display(38, 0.9, { top: 10, bottom: 6 }), { color: brand.onPitch }]}>{x.title}</Text>
       <Text style={styles.sumP}>{x.when}</Text>
       <Text style={[styles.sumP, { color: brand.onPitch2, marginTop: 2 }]}>{x.detail}</Text>
     </View>
@@ -449,5 +449,5 @@ const styles = StyleSheet.create({
   payNote: { marginTop: 14, fontFamily: font.regular, fontSize: 12.5, lineHeight: 18 },
   foot: { flexDirection: 'row', alignItems: 'center', gap: 14, paddingTop: 12, paddingLeft: 20, paddingRight: 16, borderTopWidth: 1 },
   totK: { fontFamily: font.semibold, fontSize: 12.5 },
-  totV: { fontFamily: font.display, fontSize: 26, lineHeight: 30 },
+  totV: anton(26, 30),
 });
