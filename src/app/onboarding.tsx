@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Animated, KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { WEB_MODE } from '@/bond';
 import { AuthForm, type AuthMode } from '@/components/AuthForm';
 import { ClubList } from '@/components/ClubList';
 import { easeOut } from '@/components/Shell';
@@ -28,7 +29,7 @@ export default function Onboarding() {
   };
 
   const onContinue = () => {
-    if (user) return finish();
+    if (user || WEB_MODE) return finish();
     setMode('signin');
     setStep('auth');
   };

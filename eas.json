@@ -11,31 +11,60 @@
       "extends": "base",
       "developmentClient": true,
       "distribution": "internal",
-      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+      "env": {
+        "EXPO_PUBLIC_BOND_MODE": "mock"
+      }
     },
     "preview": {
       "extends": "base",
       "distribution": "internal",
-      "android": { "buildType": "apk" },
-      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_BOND_MODE": "mock"
+      }
     },
     "testing": {
       "extends": "base",
       "autoIncrement": true,
-      "env": { "EXPO_PUBLIC_BOND_MODE": "mock" }
+      "env": {
+        "EXPO_PUBLIC_BOND_MODE": "mock"
+      }
     },
     "production": {
       "extends": "base",
       "autoIncrement": true,
-      "env": { "EXPO_PUBLIC_BOND_MODE": "live" }
+      "env": {
+        "EXPO_PUBLIC_BOND_MODE": "live"
+      }
+    },
+    "testing-website": {
+      "extends": "base",
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_BOND_MODE": "web"
+      }
     }
   },
   "submit": {
     "testing": {
-      "android": { "track": "internal", "releaseStatus": "draft" }
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
     },
     "production": {
-      "android": { "track": "production", "releaseStatus": "draft" }
+      "android": {
+        "track": "production",
+        "releaseStatus": "draft"
+      }
+    },
+    "testing-website": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
     }
   }
 }

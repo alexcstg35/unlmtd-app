@@ -3,7 +3,7 @@
 import { router } from 'expo-router';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-import type { Camp, Club, PickupSession, RentalService, WaiverId } from '@/bond';
+import { bookingUrl, openBondPage, WEB_MODE, type Camp, type Club, type PickupSession, type RentalService, type WaiverId } from '@/bond';
 import { ACTIVITIES, type ActivityId } from '@/lib/activities';
 import { fmtDay, fmtDayLong, fmtTime, money0, nextDays, parseIso, plural, iso } from '@/lib/format';
 import type { ActivityColor } from '@/theme/colors';
@@ -174,11 +174,14 @@ export function useBooking() {
 /** Home tiles and buttons: open the Book tab on an activity with a fresh selection. */
 export function useStartBooking() {
   const { startActivity } = useBooking();
+  const { club } = useApp();
   return useCallback(
     (act: ActivityId) => {
+      // Website mode: go straight to the club's Bond booking page.
+      if (WEB_MODE && club) return void openBondPage(bookingUrl(club, act));
       startActivity(act);
       router.navigate('/book');
     },
-    [startActivity],
+    [startActivity, club],
   );
 }

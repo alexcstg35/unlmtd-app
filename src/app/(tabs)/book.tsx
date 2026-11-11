@@ -2,13 +2,14 @@
 import { router } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import { BOND_MODE } from '@/bond';
+import { BOND_MODE, WEB_MODE } from '@/bond';
 import { CampSteps } from '@/components/booking/CampSteps';
 import { Note } from '@/components/booking/parts';
 import { PickupSteps } from '@/components/booking/PickupSteps';
 import { RentalSteps } from '@/components/booking/RentalSteps';
 import { SummaryBar } from '@/components/booking/SummaryBar';
 import { TabScreen } from '@/components/Shell';
+import { WebBook } from '@/components/WebBook';
 import { PageHead } from '@/components/ui';
 import { ACTIVITIES } from '@/lib/activities';
 import { useApp } from '@/state/app';
@@ -21,6 +22,21 @@ export default function Book() {
   const { c } = useTheme();
   const b = useBooking();
   if (!club) return null;
+
+  if (WEB_MODE)
+    return (
+      <TabScreen index={1}>
+        <PageHead title="Book">
+          <Text style={[styles.sub, { color: c.text2 }]}>
+            At {club.name}.{' '}
+            <Text accessibilityRole="link" onPress={() => router.push('/switch-club')} style={[styles.link, { color: c.text }]}>
+              Change club
+            </Text>
+          </Text>
+        </PageHead>
+        <WebBook club={club} />
+      </TabScreen>
+    );
 
   return (
     <View style={{ flex: 1 }}>

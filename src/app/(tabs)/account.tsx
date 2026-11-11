@@ -4,7 +4,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { bond } from '@/bond';
+import { BOND_ACCOUNT_URL, bond, openBondPage, WEB_MODE } from '@/bond';
 import { BondIdRows } from '@/components/BondIdRows';
 import { AddChildForm } from '@/components/checkout/AddChildForm';
 import { AddRow } from '@/components/checkout/parts';
@@ -74,7 +74,16 @@ export default function Account() {
 
       <View style={styles.card}>
         <PitchLines color={brand.onPitch} style={{ right: -200, top: -70, opacity: 0.1 }} />
-        {user ? (
+        {WEB_MODE ? (
+          <>
+            <Text style={styles.k}>UNLMTD bookings run on Bond Sports</Text>
+            <Text accessibilityRole="header" style={[display(58, 0.86, { top: 12, bottom: 6 }), { color: brand.onPitch }]}>
+              Your account
+            </Text>
+            <Text style={styles.cText}>Your profile, family members, bookings, waivers and payment methods are all in your Bond Sports account.</Text>
+            <Button onPress={() => openBondPage(BOND_ACCOUNT_URL)}>Open my Bond account</Button>
+          </>
+        ) : user ? (
           <>
             <View style={styles.profile}>
               <View style={styles.avatar}>
@@ -200,7 +209,7 @@ export default function Account() {
         <SectionTitle>Notifications</SectionTitle>
         <Rows>
           {toggle('spots', 'Pickup spots', 'When a full game opens up', true)}
-          {toggle('remind', 'Game reminders', 'Two hours before kickoff')}
+          {WEB_MODE ? null : toggle('remind', 'Game reminders', 'Two hours before kickoff')}
           {toggle('news', 'Club news', 'Camps, events and new programs at your club')}
         </Rows>
       </View>
@@ -240,7 +249,7 @@ export default function Account() {
           <Row
             first={!user}
             title="Show first-launch setup again"
-            sub="Signs out and clears your home club on this device"
+            sub={WEB_MODE ? 'Clears your home club on this device' : 'Signs out and clears your home club on this device'}
             icon="chev"
             onPress={async () => {
               await signOut();

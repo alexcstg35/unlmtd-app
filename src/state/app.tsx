@@ -3,7 +3,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-import { bond, type Club, type Profile } from '@/bond';
+import { bond, WEB_MODE, type Club, type Profile } from '@/bond';
 import type { ThemePref } from '@/theme';
 
 const KEY = { club: 'unlmtd.homeClub', theme: 'unlmtd.theme', notif: 'unlmtd.notif' };
@@ -49,7 +49,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       const [list, id, profile, theme, n] = await Promise.all([
         bond.getClubs().catch(() => [] as Club[]),
         read<string | null>(KEY.club, null),
-        bond.getProfile().catch(() => null),
+        WEB_MODE ? Promise.resolve(null) : bond.getProfile().catch(() => null),
         read<ThemePref>(KEY.theme, 'system'),
         read<NotifPrefs>(KEY.notif, { spots: true, remind: true, news: false }),
       ]);

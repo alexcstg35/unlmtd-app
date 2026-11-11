@@ -37,7 +37,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "start:website": "EXPO_PUBLIC_BOND_MODE=web expo start --go"
   },
   "private": true
 }

@@ -2,6 +2,7 @@
 import { router } from 'expo-router';
 import { RefreshControl, View } from 'react-native';
 
+import { BOND_ACCOUNT_URL, openBondPage, WEB_MODE } from '@/bond';
 import { BookingCard } from '@/components/BookingCard';
 import { EmptyCard } from '@/components/EmptyCard';
 import { TabScreen } from '@/components/Shell';
@@ -20,7 +21,16 @@ export default function Bookings() {
   return (
     <TabScreen index={2} refreshControl={user ? <RefreshControl refreshing={loading} onRefresh={refresh} tintColor={c.text2} /> : undefined}>
       <PageHead title="Bookings" />
-      {!user ? (
+      {WEB_MODE ? (
+        <EmptyCard
+          heading="Your games are in your Bond account"
+          body="Field rentals, pickup games and camps you booked in the app or on unlmtdsoccer.com are all in your Bond Sports account, with your receipts and check-in details."
+          actions={[
+            { label: 'Open my bookings', kind: 'solid', onPress: () => openBondPage(BOND_ACCOUNT_URL) },
+            { label: 'Book something', kind: 'ghost', onPress: () => startBooking('rent-a-field') },
+          ]}
+        />
+      ) : !user ? (
         <EmptyCard
           heading="Sign in to see your games"
           body="Sign in with your Bond Sports account. Field rentals, pickup games and camps you booked in the app or on unlmtdsoccer.com all show up here."
